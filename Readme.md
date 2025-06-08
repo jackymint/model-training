@@ -6,7 +6,7 @@ This repository demonstrates how to fine-tune a Qwen3-0.6B (or similar) model us
 
 ## 📁 Project Structure
 
-.
+```bash
 ├── data/
 │   └── tool_use_train.jsonl     # Your prompt-response training data
 ├── train.py                     # LoRA fine-tuning script
@@ -15,7 +15,7 @@ This repository demonstrates how to fine-tune a Qwen3-0.6B (or similar) model us
 │   ├── convert_hf_to_gguf.py    # Script from llama.cpp
 │   └── requirements.txt         # Separate env for llama.cpp
 └── qwen3-0.6b-lora/         # Output folder after training & GGUF conversion
-
+```
 ---
 
 ## ⚙️ 1. Environment Setup & Training
@@ -30,9 +30,9 @@ python3 train.py
 
 ✅ This will fine-tune the model using your data/tool_use_train.jsonl file
 ✅ Outputs will be saved to train/qwen3-0.6b-lora/
-
-⸻
-
+```
+---
+```bash
 🔄 2. Convert to GGUF (for llama.cpp)
 
 cd llama.cpp
@@ -46,21 +46,21 @@ python3.11 convert_hf_to_gguf.py \
   ../train/qwen3-0.6b-lora \
   --outtype f16 \
   --outfile ../train/qwen3-0.6b-lora/model.gguf
-
+```
 🎉 You’ll get a model.gguf file ready to use in llama.cpp, koboldcpp, llamafile, etc.
 
-⸻
+---
 
 📌 Notes
-	•	Make sure you have access to the base model (Qwen/Qwen1.5-0.5B, mistralai/Mistral-7B, etc.) on Hugging Face
-	•	If the tokenizer throws an error about pad_token, you can fix it in code with:
+	• Make sure you have access to the base model (Qwen/Qwen1.5-0.5B, mistralai/Mistral-7B, etc.) on Hugging Face
+	• If the tokenizer throws an error about pad_token, you can fix it in code with:
 
 tokenizer.pad_token = tokenizer.eos_token
 
 
 
-⸻
-
+---
+```bash
 📦 Example requirements.txt
 
 transformers
@@ -69,9 +69,9 @@ peft
 accelerate
 sentencepiece
 protobuf
+```
 
-
-⸻
+---
 
 🧠 Reference
 	•	PEFT - LoRA Training
