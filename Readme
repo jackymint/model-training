@@ -1,13 +1,9 @@
 
 python3 -m venv venv
 source venv/bin/activate
-pip install transformers datasets peft accelerate
+pip install -r requirements.txt
+
 python3 train.py
-cd Qwen/Qwen3-0.6B
-wget https://huggingface.co/Qwen/Qwen3-0.6B/resolve/main/tokenizer.json    10:59:38 PM
-wget https://huggingface.co/Qwen/Qwen3-0.6B/resolve/main/tokenizer_config.json
-wget https://huggingface.co/Qwen/Qwen3-0.6B/resolve/main/special_tokens_map.json
-wget https://huggingface.co/Qwen/Qwen3-0.6B/resolve/main/vocab.json
 
 
 cd llama.cpp
