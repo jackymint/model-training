@@ -1,3 +1,0 @@
-[{"instruction": "แสดง user ทั้งหมด", "input": "", "output": "SELECT * FROM users;"},
-{"instruction": "มีอีเมลอะไรบ้าง", "input": "", "output": "SELECT email FROM users;"},
-{"instruction": "หาจำนวนคำสั่งซื้อในเดือนนี้", "input": "", "output": "SELECT COUNT(*) FROM orders WHERE order_date >= '2024-06-01';"}]

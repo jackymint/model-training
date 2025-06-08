@@ -1,0 +1,10 @@
+{"prompt": "Show all users", "response": "{\"tool_use\": {\"tool_name\": \"postgres\", \"tool_input\": {\"query\": \"SELECT * FROM users;\"}}}"}
+{"prompt": "Count total orders", "response": "{\"tool_use\": {\"tool_name\": \"postgres\", \"tool_input\": {\"query\": \"SELECT COUNT(*) FROM orders;\"}}}"}
+{"prompt": "Get customer names and emails", "response": "{\"tool_use\": {\"tool_name\": \"postgres\", \"tool_input\": {\"query\": \"SELECT name, email FROM customers;\"}}}"}
+{"prompt": "List all tables", "response": "{\"tool_use\": {\"tool_name\": \"postgres\", \"tool_input\": {\"query\": \"SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';\"}}}"}
+{"prompt": "Show schema of employees table", "response": "{\"tool_use\": {\"tool_name\": \"postgres\", \"tool_input\": {\"query\": \"SELECT column_name, data_type FROM information_schema.columns WHERE table_name = 'employees';\"}}}"}
+{"prompt": "List products with price over 1000", "response": "{\"tool_use\": {\"tool_name\": \"postgres\", \"tool_input\": {\"query\": \"SELECT * FROM products WHERE price > 1000;\"}}}"}
+{"prompt": "Delete all records from temp_data table", "response": "{\"tool_use\": {\"tool_name\": \"postgres\", \"tool_input\": {\"query\": \"DELETE FROM temp_data;\"}}}"}
+{"prompt": "Insert a new customer", "response": "{\"tool_use\": {\"tool_name\": \"postgres\", \"tool_input\": {\"query\": \"INSERT INTO customers (name, email) VALUES ('John Doe', 'john@example.com');\"}}}"}
+{"prompt": "Update user with ID 5", "response": "{\"tool_use\": {\"tool_name\": \"postgres\", \"tool_input\": {\"query\": \"UPDATE users SET phone = '1234567890' WHERE id = 5;\"}}}"}
+{"prompt": "Get the latest order", "response": "{\"tool_use\": {\"tool_name\": \"postgres\", \"tool_input\": {\"query\": \"SELECT * FROM orders ORDER BY created_at DESC LIMIT 1;\"}}}"}
