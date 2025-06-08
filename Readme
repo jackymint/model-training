@@ -1,0 +1,22 @@
+
+python3 -m venv venv
+source venv/bin/activate
+pip install transformers datasets peft accelerate
+python3 train.py
+cd Qwen/Qwen3-0.6B
+wget https://huggingface.co/Qwen/Qwen3-0.6B/resolve/main/tokenizer.json    10:59:38 PM
+wget https://huggingface.co/Qwen/Qwen3-0.6B/resolve/main/tokenizer_config.json
+wget https://huggingface.co/Qwen/Qwen3-0.6B/resolve/main/special_tokens_map.json
+wget https://huggingface.co/Qwen/Qwen3-0.6B/resolve/main/vocab.json
+
+
+cd llama.cpp
+pip install --upgrade transformers
+pip install "transformers==4.39.3" "tokenizers==0.20.2"
+pip install "tokenizers>=0.20,<0.21"
+pip install tokenizers==0.20.2
+
+python3.11 convert_hf_to_gguf.py \
+  ../train/Qwen/Qwen3-0.6B \
+  --outtype f16 \
+  --outfile ../train/Qwen/Qwen3-0.6B/model.gguf
