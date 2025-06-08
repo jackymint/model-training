@@ -18,7 +18,7 @@ with open("data/tool_use_train.jsonl", "r", encoding="utf-8") as f:
 dataset = Dataset.from_list(data)
 
 # ---------- Load tokenizer ----------
-model_name = "mistralai/Mistral-7B-v0.3"
+model_name = "Qwen/Qwen2.5-0.5B"
 tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
 
 # ---------- Preprocessing ----------
@@ -73,7 +73,7 @@ model.print_trainable_parameters()
 
 # ---------- Training ----------
 training_args = TrainingArguments(
-    output_dir="./mistralai-7b-lora",
+    output_dir="./qwen3-0.6b-lora",
     per_device_train_batch_size=2,
     num_train_epochs=3,
     learning_rate=2e-4,
@@ -94,17 +94,17 @@ trainer = Trainer(
 trainer.train()
 
 # ---------- Save LoRA only ----------
-model.save_pretrained("./mistralai-7b-lora")
-tokenizer.save_pretrained("./mistralai-7b-lora")
+model.save_pretrained("./qwen3-0.6b-lora")
+tokenizer.save_pretrained("./qwen3-0.6b-lora")
 
 # Load base Qwen3 model
-base = AutoModelForCausalLM.from_pretrained("mistralai/Mistral-7B-v0.3", trust_remote_code=True)
+base = AutoModelForCausalLM.from_pretrained("Qwen/Qwen2.5-0.5B", trust_remote_code=True)
 
 # Apply LoRA weights
-lora_model = PeftModel.from_pretrained(base, "./mistralai-7b-lora")
+lora_model = PeftModel.from_pretrained(base, "./qwen3-0.6b-lora")
 
 # # Merge LoRA into base
 # merged = lora_model.merge_and_unload()
 
 # # Save merged model to a new folder
-# merged.save_pretrained("./mistralai-7b-lora")
+# merged.save_pretrained("./qwen3-0.6b-lora")
